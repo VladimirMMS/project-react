@@ -5,7 +5,7 @@ export const AuthContext = createContext()
 
 function AuthProvider({children}) {
 
-    const [user, setUser ] = useState({ïd:1, name:"Vladimir"})
+    const [user, setUser ] = useState({id:1})
 
     const contextValue = {
         user,

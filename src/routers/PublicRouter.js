@@ -2,15 +2,15 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import useAuth from '../auth/useAuth';
 
-function PrivateRouter(props) {
+function PublicRouter(props) {
     
     const { user } = useAuth();
 
-    if(!user) return <Redirect to= "/login"/>
+    if(user) return <Redirect to= "/projects"/>
 
     return (
         <Route {...props}/>
     )
 }
 
-export default PrivateRouter;
+export default PublicRouter;

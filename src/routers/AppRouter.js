@@ -10,6 +10,7 @@ import ProjectsPage from '../pages/ProjectsPage';
 import RegisterPage from '../pages/RegisterPage';
 import Layout from '../components/layouts/Layout';
 import PrivateRoute from './PrivateRouter';
+import PublicRoute from './PublicRouter'
 
 
 
@@ -19,9 +20,9 @@ function AppRouter() {
             <Layout>
                 
                 <Switch>
-                    <Route exact path ="/" component= {HomePage}/>
-                    <Route exact path ="/login" component= {LoginPage}/>
-                    <Route exact path ="/register" component= {RegisterPage}/>
+                    <PublicRoute exact path ="/" component= {HomePage}/>
+                    <PublicRoute exact path ="/login" component= {LoginPage}/>
+                    <PublicRoute exact path ="/register" component= {RegisterPage}/>
                     <PrivateRoute exact path ="/account" component= {AccountPage}/>
                     <PrivateRoute exact path ="/projects" component= {ProjectsPage}/>
                     <PrivateRoute exact path ="/project/:projectId" component= {ProjectPage}/>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-function LoginPage() {
+function LoginPage(props) {
+    console.log(props)
     return (
         <div>
             <h1>LoginPage</h1>
