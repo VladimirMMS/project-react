@@ -6,7 +6,7 @@ import routes from '../helpers/routes';
 
 function NotFoundPage(props) {
     return (
-        <div>
+        <Container>
             <Row className = 'mt-5'>
                 <Col md = {{span:6, offset:3}}className= 'text-center'>
                     <img
@@ -21,7 +21,10 @@ function NotFoundPage(props) {
                     <p>Come back <Link to= {routes.home}>Home</Link></p>
                 </Col>
             </Row>
-        </div>
+
+        </Container>
+            
+        
     );
 }
 
