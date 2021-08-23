@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useHistory } from "react-router";
 
 
 
@@ -6,11 +7,15 @@ export const AuthContext = createContext()
 
 function AuthProvider({children}) {
 
-    
+    const history = useHistory()
     const [user, setUser ] = useState(null)
 
-    const login = (userCredentials) => setUser({id:1,name:"vladimir", role:"admin"})
-
+    const login = (userCredentials, fromLocation) => {
+        setUser({id:1,name:"vladimir", role:"admin"})
+        if(fromLocation) {
+            history.push(fromLocation)
+        }
+    }
     const logout = () => setUser(null)
 
     const isLogged = () => !!user;
