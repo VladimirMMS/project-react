@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import AccountPage from '../pages/AccountPage';
 import UsersPage from '../pages/admin/UsersPage';
 import HomePage from '../pages/HomePage';
@@ -8,7 +8,6 @@ import NotFoundPage from '../pages/NotFoundPage';
 import ProjectPage from '../pages/ProjectPage';
 import ProjectsPage from '../pages/ProjectsPage';
 import RegisterPage from '../pages/RegisterPage';
-import Layout from '../components/layouts/Layout';
 import PrivateRoute from './PrivateRouter';
 import PublicRoute from './PublicRouter'
 import roles from '../helpers/roles';
