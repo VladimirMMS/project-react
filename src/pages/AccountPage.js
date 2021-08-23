@@ -1,10 +1,56 @@
 import React from 'react';
+import { Container, Row, Col,Button, Card } from 'react-bootstrap';
+import useAuth from '../auth/useAuth';
+
+
 
 function AccountPage() {
+
+    const {user} = useAuth();
+
     return (
-        <div>
-            <h1>AccountPage</h1>
-        </div>
+        <Container>
+            <Row className = 'mt-4'>
+                <Col xs = {12} className = 'text-center'>
+                    <img
+                        style = {{
+                            width:'200px',
+                            height:'200px',
+                            borderRadius:'50%',
+                            objectFit:'cover'
+                        
+                        }}
+                        src = "/img/male_avatar.svg"
+                        alt="profile"
+
+                    />
+                </Col>
+
+                <Col>
+                <Card className= "mt-4">
+                    <div className= "text-center">
+                        <p><b>Name:</b>{user?.name}</p>
+                        <p><b>Email:</b>{user?.email}</p>
+                        <p><b>Role:</b>{user?.role}</p> 
+                    </div>
+
+                    <Button variant = "warning">
+                        Edit Account
+                    </Button>
+
+                    <Button variant = "link">
+                        Change password
+                    </Button>
+
+                    <Button variant = "link text-danger">
+                        Delete Account
+                    </Button>
+                       
+                </Card>
+                
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

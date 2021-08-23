@@ -11,7 +11,7 @@ function AuthProvider({children}) {
     const [user, setUser ] = useState(null)
 
     const login = (userCredentials, fromLocation) => {
-        setUser({id:1,name:"vladimir", role:"admin"})
+        setUser({id:1,name:"Vladimir", email:"vladimirmercado2001@gmail.com",role:"admin"})
         if(fromLocation) {
             history.push(fromLocation)
         }
