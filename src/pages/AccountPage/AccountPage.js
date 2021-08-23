@@ -17,8 +17,7 @@ function AccountPage() {
                             width:'200px',
                             height:'200px',
                             borderRadius:'50%',
-                            objectFit:'cover'
-                        
+                            objectFit:'cover'                   
                         }}
                         src = "/img/male_avatar.svg"
                         alt="profile"
@@ -27,11 +26,11 @@ function AccountPage() {
                 </Col>
 
                 <Col>
-                <Card className= "mt-4">
+                <Card className= "mt-4" style = {{maxWidth:'360px', margin:'auto' , padding:'2em'}}>
                     <div className= "text-center">
-                        <p><b>Name:</b>{user?.name}</p>
-                        <p><b>Email:</b>{user?.email}</p>
-                        <p><b>Role:</b>{user?.role}</p> 
+                        <p><b>Name: </b>{user?.name}</p>
+                        <p><b>Email: </b>{user?.email}</p>
+                        <p><b>Role: </b>{user?.role}</p> 
                     </div>
 
                     <Button variant = "warning">
