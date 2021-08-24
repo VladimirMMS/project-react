@@ -4,7 +4,7 @@ import {yupResolver} from '@hookform/resolvers/yup'
 
 
 const schema = yup.object().shape({
-    password: yup.string().required()
+    password: yup.string().required().min(8)
 
 })
 

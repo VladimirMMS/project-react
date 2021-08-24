@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import {Modal, Form, Button, Alert} from 'react-bootstrap'
 import {useForm} from 'react-hook-form'
 import PasswordResolver from '../../../validations/PasswordResolver';
@@ -7,13 +8,17 @@ import PasswordResolver from '../../../validations/PasswordResolver';
 
 function DeleteModal({open, close, state}) {
 
-    const {register,handleSubmit, formState:{errors}} = useForm({resolver:PasswordResolver});
-    
-   
+    const {register,handleSubmit, formState:{errors}, reset} = useForm({resolver:PasswordResolver});
     
     const onSubmit = (formData) => {
         alert("Change Password")
     }
+
+    useEffect(() => {
+        if(!state) {
+            reset()
+        }
+    },[state])
     
 
     return (
@@ -27,13 +32,14 @@ function DeleteModal({open, close, state}) {
                         <Form.Label>New Password</Form.Label>
                         <Form.Control
                             placeholder = "Type your new password"
+                            type="password"
                             {...register("password")}     
                         />
                        
                         {errors?.password && (
                             <Form.Text>
                                 <Alert variant = "danger">
-                                    Errror in password field
+                                    {errors.password.message}
                                 </Alert>
                             </Form.Text>
                         )} 
