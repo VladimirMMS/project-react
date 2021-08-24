@@ -28,6 +28,7 @@ function AuthProvider({children}) {
         hasRole,
         login,
         logout,
+        setUser
         
     }
 
