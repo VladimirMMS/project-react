@@ -2,7 +2,7 @@
 import {Modal, Alert, Button} from 'react-bootstrap'
 import useAuth from '../../../auth/useAuth';
 
-function DeleteModal({state, handle}) {
+function DeleteModal({open, close, state}) {
 
     const {setUser} = useAuth();
 
@@ -24,7 +24,7 @@ function DeleteModal({state, handle}) {
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick = {changeState}>Accept</Button>
-                <Button variant = "danger" onClick = {() => handle(false)}>Cancel</Button>
+                <Button variant = "danger" onClick = {close}>Cancel</Button>
             </Modal.Footer>
         </Modal>
             

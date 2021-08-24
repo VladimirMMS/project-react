@@ -2,20 +2,17 @@ import React from 'react';
 import { Container, Row, Col,Button, Card } from 'react-bootstrap';
 import useAuth from '../../auth/useAuth';
 import DeleteModal from './components/DeleteModal';
-import { useState } from 'react';
+import PasswordModal from './components/PasswordModal'
+import useModal from '../../hooks/useModal';
 
 
 function AccountPage() {
 
     const {user} = useAuth();
 
-    const [binary, setBinary] = useState(false)
+    const [isOpenDelete, openDelete, closeDelete] = useModal()
+    const [isOpenPassword, openPassword, closePassword] = useModal()
 
-
-    function HandleChange(state) {
-        setBinary(state)
-
-    }
 
     return (
         <>
@@ -47,11 +44,11 @@ function AccountPage() {
                             Edit Account
                         </Button>
 
-                        <Button variant = "link">
+                        <Button variant = "link" onClick = {openPassword}>
                             Change password
                         </Button>
 
-                        <Button variant = "link text-danger" onClick = {() => HandleChange(true)}>
+                        <Button variant = "link text-danger" onClick = {openDelete}>
                             Delete Account
                         </Button>
                         
@@ -60,9 +57,15 @@ function AccountPage() {
                     </Col>
                 </Row>
             </Container>
-            <DeleteModal 
-                handle = {HandleChange}
-                state = {binary}
+            <DeleteModal
+                state = {isOpenDelete} 
+                open = {openDelete}
+                close = {closeDelete}
+            />
+            <PasswordModal
+                state = {isOpenPassword} 
+                open = {openPassword}
+                close = {closePassword}
             />
         </>
     );
