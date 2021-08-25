@@ -4,6 +4,7 @@ import useAuth from '../../auth/useAuth';
 import DeleteModal from './components/DeleteModal';
 import PasswordModal from './components/PasswordModal'
 import useModal from '../../hooks/useModal';
+import EditModal from './components/EditModal'
 
 
 function AccountPage() {
@@ -12,6 +13,7 @@ function AccountPage() {
 
     const [isOpenDelete, openDelete, closeDelete] = useModal()
     const [isOpenPassword, openPassword, closePassword] = useModal()
+    const [isOpenEdit, openEdit, closeEdit] = useModal()
 
 
     return (
@@ -40,7 +42,7 @@ function AccountPage() {
                             <p><b>Role: </b>{user?.role}</p> 
                         </div>
 
-                        <Button variant = "warning" >
+                        <Button variant = "warning" onClick = {openEdit}>
                             Edit Account
                         </Button>
 
@@ -66,6 +68,12 @@ function AccountPage() {
                 state = {isOpenPassword} 
                 open = {openPassword}
                 close = {closePassword}
+            />
+
+            <EditModal
+                state = {isOpenEdit} 
+                close = {closeEdit}
+                user= {user}
             />
         </>
     );

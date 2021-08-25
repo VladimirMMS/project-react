@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 import { useHistory } from "react-router";
 
 
-
 export const AuthContext = createContext()
 
 function AuthProvider({children}) {
@@ -21,6 +20,12 @@ function AuthProvider({children}) {
     const isLogged = () => !!user;
     const hasRole = (role) => user?.role === role;
 
+    const updateUser = (newData) => {
+        setUser({
+            ...user,   
+            ...newData
+        })
+    }
 
     const contextValue = {
         user,
@@ -28,8 +33,8 @@ function AuthProvider({children}) {
         hasRole,
         login,
         logout,
-        setUser
-        
+        setUser,
+        updateUser   
     }
 
     return (

@@ -18,7 +18,7 @@ function DeleteModal({open, close, state}) {
         if(!state) {
             reset()
         }
-    },[state])
+    },[state, reset])
     
 
     return (

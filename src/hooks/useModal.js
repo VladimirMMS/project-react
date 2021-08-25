@@ -8,7 +8,7 @@ function useModal() {
     const open = () => setIsOpen(true)
     const close = () => setIsOpen(false)
 
-    console.log(open)
+    
     return [isOpen, open, close]
 }
 
