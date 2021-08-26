@@ -6,7 +6,7 @@ import PasswordResolver from '../../../validations/PasswordResolver';
 
 
 
-function DeleteModal({open, close, state}) {
+function PasswordModal({open, close, state}) {
 
     const {register,handleSubmit, formState:{errors}, reset} = useForm({resolver:PasswordResolver});
     
@@ -57,4 +57,4 @@ function DeleteModal({open, close, state}) {
     );
 }
 
-export default DeleteModal;
+export default PasswordModal;

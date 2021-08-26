@@ -6,7 +6,7 @@ import EditResolver from '../../../validations/EditResolver';
 import useAuth from '../../../auth/useAuth';
 
 
-function DeleteModal({close, state, user}) {
+function EditModal({close, state, user}) {
 
     const {register,handleSubmit, formState:{errors, dirtyFields}, reset} = useForm({resolver:EditResolver});
     const {updateUser, hasRole} = useAuth();
@@ -36,9 +36,8 @@ function DeleteModal({close, state, user}) {
             name:user.name,
             email:user.email,
             role:user.rol
-        })
-        
-    },[user])
+        })       
+    },[user, reset])
 
     return (
         <Modal show = {state}>
@@ -113,4 +112,4 @@ function DeleteModal({close, state, user}) {
     );
 }
 
-export default DeleteModal;
+export default EditModal;

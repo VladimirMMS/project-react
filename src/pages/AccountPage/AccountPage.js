@@ -4,7 +4,8 @@ import useAuth from '../../auth/useAuth';
 import DeleteModal from './components/DeleteModal';
 import PasswordModal from './components/PasswordModal'
 import useModal from '../../hooks/useModal';
-import EditModal from './components/EditModal'
+import EditModal from './components/EditModal' 
+import ProfileModal from './components/ProfilePicModal';
 
 
 function AccountPage() {
@@ -14,6 +15,7 @@ function AccountPage() {
     const [isOpenDelete, openDelete, closeDelete] = useModal()
     const [isOpenPassword, openPassword, closePassword] = useModal()
     const [isOpenEdit, openEdit, closeEdit] = useModal()
+    const [isOpenProfileModal, openProfileModal, closeProfileModal] = useModal()
 
 
     return (
@@ -21,17 +23,31 @@ function AccountPage() {
             <Container>
                 <Row className = 'mt-4'>
                     <Col xs = {12} className = 'text-center'>
-                        <img
+
+                        {user.profilePic ? <img
                             style = {{
                                 width:'200px',
                                 height:'200px',
                                 borderRadius:'50%',
-                                objectFit:'cover'                   
+                                objectFit:'cover',
+                                cursor:'pointer'                   
                             }}
+                            onClick = {openProfileModal}
+                            src = {user.profilePic}
+                            alt="profile"
+                        />:<img
+                            style = {{
+                                width:'200px',
+                                height:'200px',
+                                borderRadius:'50%',
+                                objectFit:'cover',
+                                cursor:'pointer'                   
+                            }}
+                            onClick = {openProfileModal}
                             src = "/img/male_avatar.svg"
                             alt="profile"
-
-                        />
+                        />}
+                        
                     </Col>
 
                     <Col>
@@ -73,6 +89,11 @@ function AccountPage() {
             <EditModal
                 state = {isOpenEdit} 
                 close = {closeEdit}
+                user= {user}
+            />
+            <ProfileModal
+                state = {isOpenProfileModal} 
+                close = {closeProfileModal}
                 user= {user}
             />
         </>

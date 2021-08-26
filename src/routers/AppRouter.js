@@ -14,7 +14,6 @@ import roles from '../helpers/roles';
 import routes from '../helpers/routes'
 
 
-
 function AppRouter() {
     return (
                  
@@ -26,8 +25,6 @@ function AppRouter() {
             <PrivateRoute exact path ={routes.projects} component= {ProjectsPage}/>
             <PrivateRoute exact path ={routes.project()} component= {ProjectPage}/>
             <PrivateRoute hasRole = {roles.admin} exact path ={routes.admin.users} component= {UsersPage}/>
-
-
             <Route exact path ="*" component= {NotFoundPage}/>
         </Switch>    
      
@@ -35,4 +32,3 @@ function AppRouter() {
 }
 
 export default AppRouter;
-
